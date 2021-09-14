@@ -1,0 +1,17 @@
+[
+  {
+    "arguments": [
+      "/usr/local/opt/llvm/bin/clang",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-Wno-unused-function",
+      "-o",
+      "./bin/main",
+      "./src/main.cpp"
+    ],
+    "directory": "/Users/bfbonatto/Documents/Work/UFRGS/AI/Search/project1",
+    "file": "/Users/bfbonatto/Documents/Work/UFRGS/AI/Search/project1/./src/main.cpp",
+    "output": "/Users/bfbonatto/Documents/Work/UFRGS/AI/Search/project1/./bin/main"
+  }
+]

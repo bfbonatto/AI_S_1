@@ -1,7 +1,7 @@
 [
   {
     "arguments": [
-      "/usr/local/opt/llvm/bin/clang",
+      "g++",
       "-c",
       "-std=c++17",
       "-Wall",

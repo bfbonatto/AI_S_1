@@ -89,6 +89,14 @@ std::string list_to_string(Path p) {
 	s += ")";
 	return s;
 }
+std::string list_to_string(std::list<int> p) {
+	std::string s = "(";
+	for (auto a : p) {
+		s += std::to_string(a) + ", ";
+	}
+	s += ")";
+	return s;
+}
 
 std::optional<Board> move(Board board, Move m) {
 	auto t = typeOf(board);
@@ -205,10 +213,30 @@ std::optional<Path> gbfs(Board b) { //TODO
 	return {};
 }
 
+void process_instance(std::list<int> instance) { //TODO
 
-int main(int argc, char ** argv) { //TODO
-	Board b = {1,2,3,4,5,6,7,8, 0};
-	auto l = bfs(b);
-	std::cout << list_to_string(l.value()) << std::endl;
+}
+
+int main(int argc, char ** argv) {
+	auto algorithm = argv[1];
+	auto has_comma = [](char* s) { return std::strchr(s, ',') != nullptr; };
+	auto instance_start = argv+2;
+	std::list<int> instance = {};
+	while (instance_start != argv+argc) {
+		auto n = *instance_start;
+		if (has_comma(n)) {
+			*(std::strchr(n,',')) = '\0';
+			instance.push_back(std::atoi(n));
+			process_instance(instance);
+			instance = {};
+		}
+		else {
+			instance.push_back(std::atoi(n));
+		}
+		instance_start++;
+	}
+	if (!instance.empty()) {
+		process_instance(instance);
+	}
 	return 0;
 }
